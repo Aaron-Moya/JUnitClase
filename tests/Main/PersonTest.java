@@ -4,6 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 class PersonTest {
     Person p;
     protected String dni;
@@ -40,7 +43,9 @@ class PersonTest {
 
     @Test
     void setCorreo() {
-
+        p.setCorreo(null);
+        assertNotNull(p.getCorreo());
+        //assertEquals("aaronmoyaarques@gmail.com", p.getCorreo());
     }
 
     @Test

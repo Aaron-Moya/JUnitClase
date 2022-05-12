@@ -18,6 +18,10 @@ public class Person {
     }
 
     public void setDni(String dni) {
+        if (dni == null) {
+            this.dni = "";
+            return;
+        }
         Pattern REGEXP = Pattern.compile("[0-9]{8}[A-Z]");
         String DIGITO_CONTROL = "TRWAGMYFPDXBNJZSQVHLCKE";
         String[] INVALIDOS = new String[] { "00000000T", "00000001R", "99999999R" };
@@ -35,6 +39,10 @@ public class Person {
     }
 
     public void setCorreo(String correo) {
+        if (correo == null) {
+            this.correo = "";
+            return;
+        }
         String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 
         Pattern pattern = Pattern.compile(regex);
