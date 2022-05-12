@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class PersonTest {
     Person p;
     protected String dni;
@@ -31,8 +33,10 @@ class PersonTest {
 
     @Test
     void setDni() {
-
-
+        p.setDni("70852136T");
+        assertEquals("", p.getDni());
+        p.setDni(null);
+        assertNotNull(p.getDni());
     }
 
     @Test
@@ -45,7 +49,17 @@ class PersonTest {
     void setCorreo() {
         p.setCorreo(null);
         assertNotNull(p.getCorreo());
-        //assertEquals("aaronmoyaarques@gmail.com", p.getCorreo());
+        assertEquals("", p.getCorreo());
+        p.setCorreo("isma1878@hotmail.com");
+        assertEquals("isma1878@hotmail.com", p.getCorreo());
+        p.setCorreo("isma.com@.com@.com");
+        assertEquals("", p.getCorreo());
+        p.setCorreo("asdfghj");
+        assertEquals("", p.getCorreo());
+        p.setCorreo("a@@@@@@@@......es.com");
+        assertEquals("", p.getCorreo());
+        p.setCorreo("ismaelcadelcid@gmail.com");
+        assertEquals("ismaelcadelcid@gmail.com", p.getCorreo());
     }
 
     @Test
